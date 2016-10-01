@@ -1,0 +1,54 @@
+
+Joost Rekveld 020160923
+
+
+Android Rutt-Etra app (and more):
+
+
+overview of project:
+
+This app will be part of a project that is an hommage of sorts to two works made by Steina and Woody Vasulka in 1974, two single channel videos called 'Telc' and 'Reminiscence'. Both works are based on unedited video footage and sound that was shot during a trip to Bohemia, where Woody grew up and where his family still lived. To make the videopieces, the footage was fed through the Rutt-Etra video processor, and transformed into synthetic images that evoke the world of vector scopes, heat maps etc.
+I am linking these two pieces to earlier research into sensory augmentation; the idea that we can make wearable devices that make measurements of aspects of the environment we can not perceive, and map these to experiences we can perceive through, touch, sound, vision etc. In that earlier project I did a number of experiments and then focused on real-time haptic displays of electrostatic fields, and in second instance made a number of stereoscopic videos based on 'electrostatic' walks.
+This app will focus on mapping the input of various sensors to visual transformations, starting from the idea of making a real-time version of the kinds of transformations used in 'Telc' and 'Reminiscence' (basically scan lines displaced by the brightness of the input image). It will be used in my own research, as a tool in workshops and possibly as a platform for a future artwork.
+
+
+usage of  app:
+
+Users should be able to experiment with navigating the real world on the basis of visualization of sensors, seen through cardboard AR in real-time. In workshops, participants should be able to change mappings, experiment with different ways of visualization, etc.
+Everything should be open source, also to see what other usage can emerge.
+
+
+needed functionality:
+
+- transform images based on incoming data
+- be able to change shaders
+- be able to change base image / patterns that is transformed by shaders
+- be able to source data from sensors inside phone (camera, acceleration, magnetic, wifi, networks etc..)
+- be able to connect external hardware: arduino via usb, arduino via bluetooth, via some extremely simple protocol that can go both ways: in order to use input from external sensors and in order to control external devices.
+- have some kind of (very basic) gui to choose between presets, adjust mappings, perhaps some stereo settings, choose / enable sensors etc.
+- use config files or something similarly open to configure the rest, including the interface ?
+
+
+envisioned implementation:
+
+ using pixel shaders to transform a basic image or pattern
+ input sensor data to the shader, as floats, short arrays, or camera images
+ use python to do (basic) data processing / mapping and as glue between shaders, hardware and gui.
+ I have been looking at Kyvi, and that looked promising.
+ (https://kivy.org/planet/2015/04/python-on%c2%a0android/)
+
+
+ looking for:
+
+ somebody who can:
+ - think of a good architecture for such a relatively open app
+ - can implement it (I can write the shaders)
+
+
+ timetable:
+
+ this app should be finished on the 27th of November (for a workshop organized by LIMA and Sonic Acts), and a prototype should be ready on the 5th of November (for a workshop at Artez in Arnhem).
+
+
+
+
