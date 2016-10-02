@@ -18,28 +18,29 @@ void setup()
   initShaders();
   initGui(shaders);
 
+/*
   for(Shader s : shaders) {
     println( "Shader => " + s.path );
-
     for(Param p : s.parameters) {
       println( "        Shader.param => " + p.name );
     }
-
   }
+*/
 
+  setShader(0);
   pg = createGraphics(960, 720, OPENGL);
 }
 
 void draw()
 {
-  // shader.setShaderParameters();
-  //
-  // pg.beginDraw();
-  // pg.shader(shader.shader);
-  // pg.rect(0, 0, pg.width, pg.height);
-  // pg.endDraw();
-  //
-  // fill(0);
-  // rect(0, 0, 480, height);
-  // image(pg, 480, 0);
+  shader.setShaderParameters();
+
+  pg.beginDraw();
+  pg.shader(shader.shader);
+  pg.rect(0, 0, pg.width, pg.height);
+  pg.endDraw();
+
+  fill(0);
+  rect(0, 0, 480, height);
+  image(pg, 480, 0);
 }

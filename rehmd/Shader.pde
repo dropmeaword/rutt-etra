@@ -24,14 +24,17 @@ class Shader
   void setShaderParameters() {
     shader.set("time", (float) millis()/1000.0);
     shader.set("resolution", float(pg.width), float(pg.height));
-    for (Param p : parameters) {
-      if (p.is2d) {
-        shader.set(p.name, p.value2.x, p.value2.y);
-      } else {
-        shader.set(p.name, p.value);
-      }
-    }
-  }
+
+    if(null != parameters) {
+      for (Param p : parameters) {
+        if (p.is2d) {
+          shader.set(p.name, p.value2.x, p.value2.y);
+        } else {
+          shader.set(p.name, p.value);
+        }
+      } // for
+    } // if
+  } // setShaderParameters
 
 } // class
 
