@@ -16,7 +16,7 @@ void setup()
   config = new Config("hmdviewer.config");
 
   initShaders();
-  // initGui();
+  initGui(shaders);
 
   for(Shader s : shaders) {
     println( "Shader => " + s.path );

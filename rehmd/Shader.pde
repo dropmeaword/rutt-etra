@@ -36,8 +36,8 @@ class Shader
 } // class
 
 // ////////////////////////////////////////////////////////////////////////////
-List<Shader> shaders;
-Shader shader;
+List<ShaderUI> shaders;
+ShaderUI shader;
 
 String stripExtension(String s)
 {
@@ -46,9 +46,9 @@ String stripExtension(String s)
 
 void initShaders()
 {
-  Shader ashader;
+  ShaderUI ashader;
   ShaderMeta ameta;
-  shaders = new ArrayList<Shader>();
+  shaders = new ArrayList<ShaderUI>();
 
   // shaders are expected on 'data/shaders/' path
   String path = dataPath("shaders");
@@ -64,7 +64,7 @@ void initShaders()
 
   for(File f : files) {
     // load shader file
-    ashader = new Shader("shaders/" + f.getName());
+    ashader = new ShaderUI("shaders/" + f.getName());
 
     // compute name of .meta file based on shader filename
     String base = stripExtension(f.getName());
@@ -79,12 +79,3 @@ void initShaders()
     shaders.add( ashader );
   }
 }
-
-
-// void setShader(int idxNextShader) {
-//   if (idxShader > -1)
-//     shader.removeGui();
-//   idxShader = idxNextShader;
-//   shader = shaders.get(idxShader);
-//   shader.addGui();
-// }

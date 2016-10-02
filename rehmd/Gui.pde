@@ -1,6 +1,6 @@
 ControlP5 cp5;
 
-void initGui(List<Shader> shaders) {
+void initGui(List<ShaderUI> shaders) {
   cp5 = new ControlP5(this);
   cp5.setFont(createFont("Courier", 14));
 
@@ -10,7 +10,7 @@ void initGui(List<Shader> shaders) {
   //guiShaders.captionLabel().style().marginTop = 1;
   //guiShaders.captionLabel().style().marginLeft = 1;
   int i = 0;
-  for (Shader sha : shaders) {
+  for (ShaderUI sha : shaders) {
     guiShaders.addItem(sha.path, i++);
   }
 }
@@ -18,20 +18,24 @@ void initGui(List<Shader> shaders) {
 void controlEvent(ControlEvent theEvent)
 {
   String name = theEvent.getName();
+  println("clicked => " + name);
+  println("    on => " + theEvent.value() );
 
-  for (Param p : shader.parameters) {
-    if (name.equals(p.name)) {
-      if (p.is2d) {
-        p.set(theEvent.getArrayValue());
-      }
-      else {
-        p.set(theEvent.value());
-      }
-      return;
-    }
+  // if(null != shader.parameters) {
+  //   for (Param p : shader.parameters) {
+  //     if (name.equals(p.name)) {
+  //       if (p.is2d) {
+  //         p.set(theEvent.getArrayValue());
+  //       }
+  //       else {
+  //         p.set(theEvent.value());
+  //       }
+  //       return;
+  //     }
+  //   }
+  // } // parameters
+
+  if (name.equals("selectShader")) {
+    setShader((int) theEvent.value());
   }
-
-  // if (name.equals("selectShader")) {
-  //   setShader((int) theEvent.value());
-  // }
 }
