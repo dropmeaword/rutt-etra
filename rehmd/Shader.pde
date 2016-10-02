@@ -68,11 +68,11 @@ void initShaders()
 
     // compute name of .meta file based on shader filename
     String base = stripExtension(f.getName());
-    String fnameMeta = "shaders/"+base+".meta";
+    String fmeta = base+".meta";
 
     // load shader metadata only if .meta file exists
-    if( File.exists(fnameMeta) ) {
-      ameta   = new ShaderMeta(fnameMeta, ashader);
+    if( new File(path + File.separator + fmeta).isFile() ) {
+      ameta   = new ShaderMeta("shaders/"+fmeta, ashader);
     }
 
     // add shader to global list
