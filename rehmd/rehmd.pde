@@ -1,11 +1,11 @@
 //import processing.cardboard.*;
 import controlP5.*;
 import java.util.*;
+import java.io.*;
 
-Config config;
+import ketai.data.*;
+import ketai.sensors.*;
 
-List<Shader> shaders;
-Shader shader;
 PGraphics pg;
 int idxShader = -1;
 
@@ -16,15 +16,18 @@ void setup()
   config = new Config("hmdviewer.config");
 
   initShaders();
-  initGui();
+  // initGui();
 
-  //setupShaders();
-  //setupGui();
-  //setShader(0);
+  for(Shader s : shaders) {
+    println( "Shader => " + s.path );
+
+    for(Param p : s.parameters) {
+      println( "        Shader.param => " + p.name );
+    }
+
+  }
+
   pg = createGraphics(960, 720, OPENGL);
-}
-
-void initShaders() {
 }
 
 void draw()

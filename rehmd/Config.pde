@@ -1,3 +1,5 @@
+Config config;
+
 class Config
 {
   String path;
@@ -14,7 +16,7 @@ class Config
   }  // ctor
 
   List<String> getShaderList() {
-    JSONArray shaders = config.json.getJSONArray("shaders");
+    JSONArray shaders = json.getJSONArray("shaders");
     List<String> retval = new ArrayList<String>();
 
     for(int i = 0; i < shaders.size(); i++) {

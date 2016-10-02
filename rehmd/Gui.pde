@@ -1,6 +1,6 @@
 ControlP5 cp5;
 
-void setupGui() {
+void initGui(List<Shader> shaders) {
   cp5 = new ControlP5(this);
   cp5.setFont(createFont("Courier", 14));
 
@@ -9,8 +9,9 @@ void setupGui() {
   guiShaders.setCaptionLabel("shaders");
   //guiShaders.captionLabel().style().marginTop = 1;
   //guiShaders.captionLabel().style().marginLeft = 1;
-  for (int i=0; i<shaders.size(); i++) {
-    guiShaders.addItem(shaders.get(i).path, i);
+  int i = 0;
+  for (Shader sha : shaders) {
+    guiShaders.addItem(sha.path, i++);
   }
 }
 
@@ -30,7 +31,7 @@ void controlEvent(ControlEvent theEvent)
     }
   }
 
-  if (name.equals("selectShader")) {
-    setShader((int) theEvent.value());
-  }
+  // if (name.equals("selectShader")) {
+  //   setShader((int) theEvent.value());
+  // }
 }

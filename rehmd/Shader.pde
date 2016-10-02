@@ -6,6 +6,7 @@ class Shader
 
   Shader(String path) {
     this.path = path;
+    println("Loading shader " + path);
     shader = loadShader(path);
     parameters = new ArrayList<Param>();
   }
@@ -33,3 +34,57 @@ class Shader
   }
 
 } // class
+
+// ////////////////////////////////////////////////////////////////////////////
+List<Shader> shaders;
+Shader shader;
+
+String stripExtension(String s)
+{
+    return s != null && s.lastIndexOf(".") > 0 ? s.substring(0, s.lastIndexOf(".")) : s;
+}
+
+void initShaders()
+{
+  Shader ashader;
+  ShaderMeta ameta;
+  shaders = new ArrayList<Shader>();
+
+  // shaders are expected on 'data/shaders/' path
+  String path = dataPath("shaders");
+  println("Loading shaders from " + path); // print path for debugging
+  java.io.File folder = new java.io.File(path);
+  // get list of glsl files in that directory
+  File[] files = folder.listFiles(new FilenameFilter() {
+      public boolean accept(File dir, String name) {
+          return name.toLowerCase().endsWith(".glsl");
+
+      }
+    });
+
+  for(File f : files) {
+    // load shader file
+    ashader = new Shader("shaders/" + f.getName());
+
+    // compute name of .meta file based on shader filename
+    String base = stripExtension(f.getName());
+    String fnameMeta = "shaders/"+base+".meta";
+
+    // load shader metadata only if .meta file exists
+    if( File.exists(fnameMeta) ) {
+      ameta   = new ShaderMeta(fnameMeta, ashader);
+    }
+
+    // add shader to global list
+    shaders.add( ashader );
+  }
+}
+
+
+// void setShader(int idxNextShader) {
+//   if (idxShader > -1)
+//     shader.removeGui();
+//   idxShader = idxNextShader;
+//   shader = shaders.get(idxShader);
+//   shader.addGui();
+// }
