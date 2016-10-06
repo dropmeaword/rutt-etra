@@ -3,9 +3,12 @@ import controlP5.*;
 import java.util.*;
 import java.io.*;
 
-import ketai.data.*;
-import ketai.sensors.*;
-
+// import android.content.Context;
+// import android.hardware.Sensor;
+// import android.hardware.SensorEvent;
+// import android.hardware.SensorEventListener;
+// import android.hardware.SensorManager;
+ 
 PGraphics pg;
 int idxShader = -1;
 

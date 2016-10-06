@@ -1,3 +1,9 @@
+SensorManager sensorManager;
+SensorListener sensorListener;
+Sensor accelerometer;
+float[] accelData;
+
+
 // KetaiSensor sensor;
 //
 // PVector magneticField, accelerometer;
