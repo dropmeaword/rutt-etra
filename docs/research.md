@@ -40,3 +40,5 @@
 
 #### LightBlue Bean
   * [[https://punchthrough.com/bean/reference|Reference API]]
+
+I have one in the lab that I have been testing with and the result is that the Android programmer crashes when I try to upload code. I can see the bluetooth uplink, but the programmer fails to upload with *unknown error*, which isn't very helpful. It seems to work better from iPad, but I don't have one to test with. 
