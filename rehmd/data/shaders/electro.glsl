@@ -7,10 +7,14 @@
 precision mediump float;
 #endif
 
-uniform vec2 resolution;
-uniform float time;
+uniform vec2 iResolution;      // viewport iResolution (in pixels)
+uniform float iGlobalTime;     // shader playback time (in seconds)
+uniform vec4 iMouse;           // mouse pixel coords. xy: current (if mouse button down), zw: click
+uniform vec4 iDate;            // (year, month, day, time in seconds)
+
 uniform float complexity;
 uniform float rings;
+
 
 float viewAngle = 0.0;//0.040*sin(0.1*time);
 float speed = -1.0;
@@ -19,11 +23,11 @@ float baseamp = 0.10;
 
 void main(void)
 {
-  vec2 p = -1.0 + 2.0 * (gl_FragCoord.xy / resolution.xy);
+  vec2 p = -1.0 + 2.0 * (gl_FragCoord.xy / iResolution.xy);
   vec2 op = p;
-  p = vec2(distance(p, vec2(0, 0)), sin(0.40*time+atan(p.x, p.y) * complexity));
-  float x = speed * viewAngle * time + rate * p.x;
-  float base = (0.1 + 3.0*tan(x*0.7 + time)) * (2.37 + 2.5*sin(x*rings + time));
+  p = vec2(distance(p, vec2(0, 0)), sin(0.40*iGlobalTime+atan(p.x, p.y) * complexity));
+  float x = speed * viewAngle * iGlobalTime + rate * p.x;
+  float base = (0.1 + 3.0*tan(x*0.7 + iGlobalTime)) * (2.37 + 2.5*sin(x*rings + iGlobalTime));
   float z = fract(0.05*x);
   z = max(z, 100.0-z);
   z = pow(z, 50.0);

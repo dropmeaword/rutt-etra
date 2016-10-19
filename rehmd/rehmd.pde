@@ -8,19 +8,22 @@ import java.io.*;
 // import android.hardware.SensorEvent;
 // import android.hardware.SensorEventListener;
 // import android.hardware.SensorManager;
- 
-PGraphics pg;
+
+//PGraphics pg;
 int idxShader = -1;
+
+void settings() {
+  size(800, 460, P3D);
+}
 
 void setup()
 {
-  size(1024, 600, OPENGL);
-
   config = new Config("hmdviewer.config");
 
+  uiInit();
+  //if( cf != null ) { println("Not null anymore"); }
   initShaders();
-  initGui(shaders);
-
+  uiSetShaders(shaders);
 /*
   for(Shader s : shaders) {
     println( "Shader => " + s.path );
@@ -31,19 +34,17 @@ void setup()
 */
 
   setShader(0);
-  pg = createGraphics(960, 720, OPENGL);
 }
 
 void draw()
 {
   shader.setShaderParameters();
 
-  pg.beginDraw();
-  pg.shader(shader.shader);
-  pg.rect(0, 0, pg.width, pg.height);
-  pg.endDraw();
-
+  shader(shader.shader);
+  rect(0, 0, width, height);
+/*
   fill(0);
   rect(0, 0, 480, height);
   image(pg, 480, 0);
+*/
 }

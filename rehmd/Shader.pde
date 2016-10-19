@@ -1,3 +1,7 @@
+float []date = {0, 0, 0, 0};
+float []mouse = {0, 0, 0, 0};
+PVector res = new PVector(width, height);
+
 class Shader
 {
   String path;
@@ -23,7 +27,20 @@ class Shader
 
   void setShaderParameters() {
     shader.set("time", (float) millis()/1000.0);
-    shader.set("resolution", float(pg.width), float(pg.height));
+    shader.set("resolution", float(width), float(height));
+
+    date[0] = year();
+    date[1] = month();
+    date[2] = day();
+    date[3] = (hour() *60 * 60) + (minute() * 60) + second();
+
+    mouse[0] = mouseX;
+    mouse[1] = mouseY;
+
+    shader.set("iResolution", res);
+    shader.set("iGlobalTime", (millis() * 1.0 / 1000.0) );
+    shader.set("iDate", date);
+    shader.set("iMouse", mouse);
 
     if(null != parameters) {
       for (Param p : parameters) {
