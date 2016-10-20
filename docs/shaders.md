@@ -22,3 +22,22 @@ These variables allow you to use (some) shaders from shadertoy, sound is not sup
 |~~uniform samplerXX iChannel0..3;~~|~~input channel. XX = 2D/Cube~~|
 |uniform vec4      iDate;| (year, month, day, time in seconds)|
 |~~uniform float     iSampleRate;~~|~~sound sample rate (i.e., 44100)~~|
+
+#### Android sensor readings
+
+Readings from the different Android sensors can be used by defining the following uniforms:
+
+|uniform|meaning|
+|-------|-------|
+|uniform vec3 andAccelerometer|x,y,z rotation in degrees|
+|uniform vec3 andOrientation||
+|uniform vec3 andMagneticField||
+|uniform vec3 andGyroscope||
+|uniform float andProximity||
+|uniform vec3 andGravity||
+|uniform float andLight||
+|uniform float andAtmosphericPressure|in millibars|
+|uniform float andTemperature|in degrees Celsius|
+|uniform vec3 andLinearAccel|acceleration force in m/s^2, minus gravity|
+|uniform vec3 andRotation||
+|uniform float Humidity||

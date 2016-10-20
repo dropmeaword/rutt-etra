@@ -53,6 +53,15 @@ class Shader
     } // if
   } // setShaderParameters
 
+  void printShaderParams() {
+    for(Shader s : shaders) {
+      println( "Shader => " + s.path );
+      for(Param p : s.parameters) {
+        println( "        Shader.param => " + p.name );
+      }
+    }
+  }
+  
 } // class
 
 // ////////////////////////////////////////////////////////////////////////////
