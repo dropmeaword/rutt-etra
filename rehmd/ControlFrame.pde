@@ -32,26 +32,26 @@ class ControlFrame extends PApplet {
   void controlEvent(ControlEvent theEvent)
   {
     String name = theEvent.getName();
-    println("clicked => " + name);
-    println("    on => " + theEvent.value() );
+    //println("clicked => " + name);
+    //println("    on => " + theEvent.value() );
   
-    // if(null != shader.parameters) {
-    //   for (Param p : shader.parameters) {
-    //     if (name.equals(p.name)) {
-    //       if (p.is2d) {
-    //         p.set(theEvent.getArrayValue());
-    //       }
-    //       else {
-    //         p.set(theEvent.value());
-    //       }
-    //       return;
-    //     }
-    //   }
-    // } // parameters
+     if(null != shader.parameters) {
+       for (Param p : shader.parameters) {
+         if (name.equals(p.name)) {
+           if (p.is2d) {
+             p.set(theEvent.getArrayValue());
+           }
+           else {
+             p.set(theEvent.value());
+           }
+           return;
+         }
+       }
+     } // parameters
   
-    //if (name.equals("selectShader")) {
-    //  setShader((int) theEvent.value());
-    //}
+    if (name.equals("selectShader")) {
+      setShader((int) theEvent.value());
+    }
   }
 
 } // class ControlFrame

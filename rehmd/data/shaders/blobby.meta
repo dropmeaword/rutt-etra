@@ -1,0 +1,17 @@
+{
+  "description": "oldskool demoscene effect",
+  "params" : [
+    {
+      "name": "depth",
+      "min" : 0,
+      "max" : 2,
+      "mapping" : null
+    },
+    {
+      "name": "rate",
+      "min" : 0,
+      "max" : 2,
+      "mapping" : null
+    }
+  ]
+}
