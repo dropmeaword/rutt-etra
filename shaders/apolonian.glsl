@@ -1,3 +1,24 @@
+#ifdef GL_ES
+precision mediump float;
+precision mediump int;
+#endif
+
+// From Processing 2.1 and up, this line is optional
+#define PROCESSING_COLOR_SHADER
+
+// if you are using the texture channels, the above should be
+// #define PROCESSING_TEXTURE_SHADER
+
+uniform vec2 iResolution;      // viewport resolution (in pixels)
+uniform float iGlobalTime;     // shader playback time (in seconds)
+uniform vec4 iMouse;           // mouse pixel coords. xy: current (if mouse button down), zw: click
+uniform vec4 iDate;            // (year, month, day, time in seconds)
+
+
+// /////////////////////////////////////////////////////////////////////////////
+// unmodified shadertoy code below
+// /////////////////////////////////////////////////////////////////////////////
+
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 //
@@ -96,7 +117,7 @@ vec3 render( in vec3 ro, in vec3 rd, in float anim )
     return sqrt(col);
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
+void main(void)
 {
     float time = iGlobalTime*0.25 + 0.01*iMouse.x;
     float anim = 1.1 + 0.5*smoothstep( -0.3, 0.3, cos(0.1*iGlobalTime) );
@@ -109,7 +130,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     int ii = 1, jj = 1;
     #endif
     {
-        vec2 q = fragCoord.xy+vec2(float(ii),float(jj))/float(AA);
+        vec2 q = gl_FragCoord.xy+vec2(float(ii),float(jj))/float(AA);
         vec2 p = (2.0*q-iResolution.xy)/iResolution.y;
 
         // camera
@@ -127,10 +148,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     tot = tot/float(AA*AA);
 
-	fragColor = vec4( tot, 1.0 );
+	gl_FragColor = vec4( tot, 1.0 );
 
 }
-
+/*
 void mainVR( out vec4 fragColor, in vec2 fragCoord, in vec3 fragRayOri, in vec3 fragRayDir )
 {
     float time = iGlobalTime*0.25 + 0.01*iMouse.x;
@@ -139,3 +160,4 @@ void mainVR( out vec4 fragColor, in vec2 fragCoord, in vec3 fragRayOri, in vec3 
     vec3 col = render( fragRayOri + vec3(0.82,1.2,-0.3), fragRayDir, anim );
     fragColor = vec4( col, 1.0 );
 }
+*/
