@@ -5,17 +5,22 @@ class ControlFrame extends PApplet {
   ControlP5 cp5;
 
   public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
-    super();   
+    super();
     parent = _parent;
+    parent.registerMethod("dispose", this);
     w=_w;
     h=_h;
     PApplet.runSketch(new String[]{this.getClass().getName()}, this);
   }
 
+  public void dispose() {
+    parent.dispose();
+  }
+
   public void settings() {
     size(w, h);
   }
-  
+
   ControlP5 controller() {
     return this.cp5;
   }
@@ -28,13 +33,13 @@ class ControlFrame extends PApplet {
   void draw() {
     background(190);
   }
-  
+
   void controlEvent(ControlEvent theEvent)
   {
     String name = theEvent.getName();
     //println("clicked => " + name);
     //println("    on => " + theEvent.value() );
-  
+
      if(null != shader.parameters) {
        for (Param p : shader.parameters) {
          if (name.equals(p.name)) {
@@ -48,7 +53,7 @@ class ControlFrame extends PApplet {
          }
        }
      } // parameters
-  
+
     if (name.equals("selectShader")) {
       setShader((int) theEvent.value());
     }
