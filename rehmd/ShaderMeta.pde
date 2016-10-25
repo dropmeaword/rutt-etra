@@ -26,7 +26,7 @@ class ShaderMeta
         float max = param.getFloat("max");
         String mapping = param.isNull("mapping") ? null : param.getString("mapping");
         /// @TODO at the moment we don't do anything with the mapping but this 
-        /// should be used tomap this parameter to a sensor
+        /// should be used to map this parameter to a sensor
         ashader.addParameter(name, min, max);
       } // for
     } catch (Exception e) {

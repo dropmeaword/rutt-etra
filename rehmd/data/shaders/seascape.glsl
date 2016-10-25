@@ -1,7 +1,11 @@
 #ifdef GL_ES
-precision mediump float;
-precision mediump int;
+precision highp float;
+precision highp int;
 #endif
+// #ifdef GL_ES
+// precision mediump float;
+// precision mediump int;
+// #endif
 
 // From Processing 2.1 and up, this line is optional
 #define PROCESSING_COLOR_SHADER
@@ -178,8 +182,8 @@ float heightMapTracing(vec3 ori, vec3 dir, out vec3 p) {
 }
 
 // main
-void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
-	vec2 uv = fragCoord.xy / iResolution.xy;
+void main(void) {
+	vec2 uv = gl_FragCoord.xy / iResolution.xy;
     uv = uv * 2.0 - 1.0;
     uv.x *= iResolution.x / iResolution.y;
     float time = iGlobalTime * 0.3 + iMouse.x*0.01;
@@ -204,5 +208,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     	pow(smoothstep(0.0,-0.05,dir.y),0.3));
 
     // post
-	fragColor = vec4(pow(color,vec3(0.75)), 1.0);
+	gl_FragColor = vec4(pow(color,vec3(0.75)), 1.0);
 }

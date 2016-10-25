@@ -3,47 +3,36 @@ import controlP5.*;
 import java.util.*;
 import java.io.*;
 
+//PShader sdr;
+
 // import android.content.Context;
 // import android.hardware.Sensor;
 // import android.hardware.SensorEvent;
 // import android.hardware.SensorEventListener;
 // import android.hardware.SensorManager;
- 
-PGraphics pg;
+
+//PGraphics pg;
 int idxShader = -1;
+
+void settings() {
+  size(800, 460, P3D);
+}
 
 void setup()
 {
-  size(1024, 600, OPENGL);
-
   config = new Config("hmdviewer.config");
 
+//  sdr = loadShader("data/shaders/landscape.glsl");
+  uiInit();
   initShaders();
-  initGui(shaders);
-
-/*
-  for(Shader s : shaders) {
-    println( "Shader => " + s.path );
-    for(Param p : s.parameters) {
-      println( "        Shader.param => " + p.name );
-    }
-  }
-*/
+  uiSetShaders(shaders);
 
   setShader(0);
-  pg = createGraphics(960, 720, OPENGL);
 }
 
 void draw()
 {
   shader.setShaderParameters();
-
-  pg.beginDraw();
-  pg.shader(shader.shader);
-  pg.rect(0, 0, pg.width, pg.height);
-  pg.endDraw();
-
-  fill(0);
-  rect(0, 0, 480, height);
-  image(pg, 480, 0);
+  shader(shader.shader);
+  rect(0, 0, width, height);
 }

@@ -1,7 +1,7 @@
-SensorManager sensorManager;
-SensorListener sensorListener;
-Sensor accelerometer;
-float[] accelData;
+// SensorManager sensorManager;
+// SensorListener sensorListener;
+// Sensor accelerometer;
+// float[] accelData;
 
 
 // KetaiSensor sensor;
