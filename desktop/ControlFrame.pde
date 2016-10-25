@@ -4,7 +4,7 @@ class ControlFrame extends PApplet {
   PApplet parent;
   ControlP5 cp5;
 
-  public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
+  ControlFrame(PApplet _parent, int _w, int _h, String _name) {
     super();
     parent = _parent;
     parent.registerMethod("dispose", this);
@@ -13,11 +13,11 @@ class ControlFrame extends PApplet {
     PApplet.runSketch(new String[]{this.getClass().getName()}, this);
   }
 
-  public void dispose() {
-    parent.dispose();
-  }
+  // void dispose() {
+  //   parent.dispose();
+  // }
 
-  public void settings() {
+  void settings() {
     size(w, h);
   }
 
@@ -25,7 +25,7 @@ class ControlFrame extends PApplet {
     return this.cp5;
   }
 
-  public void setup() {
+  void setup() {
     surface.setLocation(10, 10);
     cp5 = new ControlP5(this);
   }
