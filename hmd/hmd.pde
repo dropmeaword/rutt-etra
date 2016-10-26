@@ -5,11 +5,11 @@ import java.io.*;
 
 //PShader sdr;
 
-// import android.content.Context;
-// import android.hardware.Sensor;
-// import android.hardware.SensorEvent;
-// import android.hardware.SensorEventListener;
-// import android.hardware.SensorManager;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 
 //PGraphics pg;
 int idxShader = -1;
