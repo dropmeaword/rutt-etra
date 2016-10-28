@@ -51,7 +51,7 @@ This is the fun part, when you have composed your shader and defined your parame
 
 Once you are happy with your output, simply copy the shader to `hmd/data/shaders` and re-build the Android Cardboard up so that it gets uploaded in the next sync.
 
-![cardboard](docs/img/carboard_sshot.png)
+![cardboard](docs/img/cardboard_sshot.png)
 
 ## Software
 
