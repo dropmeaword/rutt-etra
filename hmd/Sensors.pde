@@ -11,10 +11,10 @@ PVector gyro;
 PVector magnet;
 PVector gravity;
 float lux;
-float pressure;
-float altitude;
-float proximity;
-float humidity;
+float pressure; // mPh
+float altitude; // metres
+float proximity;  // 0 or 1
+float humidity; // percent
 float temperature; // in celsius
 
 void initSensors() {

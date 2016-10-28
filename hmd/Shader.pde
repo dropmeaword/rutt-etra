@@ -42,6 +42,22 @@ class Shader
     shader.set("iDate", date);
     shader.set("iMouse", mouse);
 
+    // set uniforms in shader 
+    // these values come form Android sensor readings (thus the 'and' prefix)
+    shader.set("andAccel", accel);
+    shader.set("andLinearAccel", linearaccel);
+    shader.set("andRotation", rotation);
+    shader.set("andOrientation", orientation);
+    shader.set("andGyro", gyro);
+    shader.set("andMagnet", magnet);
+    shader.set("andGravity", gravity);
+    shader.set("andLux", lux);
+    shader.set("andPressure", pressure);
+    shader.set("andAltitude", altitude);
+    shader.set("andProximity", proximity);
+    shader.set("andHumidity", humidity);
+    shader.set("andTemperature", temperature);
+
     if(null != parameters) {
       for (Param p : parameters) {
         if (p.is2d) {
