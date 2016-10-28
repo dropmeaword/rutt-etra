@@ -10,7 +10,7 @@ The Rutt-Etra VR machine is composed of two applications written in Processing 3
 
 The *desktop* application can be used to compose, test and play around with your shaders, it allows you to define parameters and automatically creates a GUI for you to play around with them. The idea is that you use this desktop application to preview your shaders.
 
-The *hmd* application runs on devices compatible with Google Cardboard. This application loads a config file that specifies which shaders to load and which order to apply them in the stack and then simply renders a rectangle using the Cardboard API, running through the shader stack. The *hmd* application also makes available the sensor readings of the android device as shader uniforms. Read further documentation in the `docs` directory.
+The *hmd* application runs on devices compatible with Google Cardboard. This application loads a config file that specifies which shaders to load and which order to apply them in the stack and then simply renders a rectangle using the Cardboard API, running through the shader stack. The *hmd* application also makes available the sensor readings of the android device as shader uniforms. [Read further documentation](docs/shaders.md) in the `docs` directory.
 
 ### Desktop tool
 
