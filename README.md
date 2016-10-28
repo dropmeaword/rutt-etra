@@ -4,6 +4,55 @@ A VR graphic shell to experiment with shaders and sensors.
 
 ![vasulkas](docs/img/reminiscence.jpg)
 
+## Workflow
+
+#### Compose your shader
+
+You can compose your shaders using your favorite tool. Just keep in mind that to interface with the Rutt-Etra VR Machine you have to stick to the interfaces explained in [the shaders document](docs/shaders.md).
+
+A low-entry tool for shader composition is [Shadertoy](http://www.shadertoy.com). It runs in the browser and the RE Machine is near-compatible with it (see documentation). You can run your shader there, test it in the browser and tweak it until it outputs what you want.
+
+Other tools can be the GLSL toolkit for Atom or Sublime.
+
+#### Define your meta parameters
+
+When you write a shader you might want to make some of its visual features dependable of a parameter. You can define those parameters in the `.meta` files that are saved alongside the `.glsl` file.
+
+Let's say for example that we have a shader named *Julia*. *Julia* takes two parameters,
+*depth* and *complexity*. We want the *depth* parameter to have the range [4..3000] and the *complexity* parameter to range from [1..16]. Our meta file would then look something like:
+
+```
+{
+  "description": "render a volumetric julia set",
+  "params" : [
+    {
+      "name": "depth",
+      "min" : 4,
+      "max" : 3000,
+      "mapping" : null
+    },
+    {
+      "name": "complexity",
+      "min" : 1,
+      "max" : 16,
+      "mapping" : null
+    }
+  ]
+}
+```
+
+NOTE: This `.meta` file is written using JSON syntax. It must be valid JSON, otherwise the *desktop* app will fail to load it. JSON is very finicky about syntax and will fail if you are not very strict. You can validate JSON snippets using [JSONlint](http://jsonlint.com/), `.meta` files validated with this tool will be loaded just fine.
+
+#### Test + play
+
+This is the fun part, when you have composed your shader and defined your parameters you can run the *desktop* app, select your shader and play around with the parameters until you have the visual effect that you are after. You can use the parameter UI controls to play around.
+
+#### Finalize and upload to Cardboard
+
+Once you are happy with your output, simply copy the shader to `hmd/data/shaders` and re-build the Android Cardboard up so that it gets uploaded in the next sync.
+
+![cardboard](docs/img/carboard_sshot.png)
+
 ## Software
 
 The Rutt-Etra VR machine is composed of two applications written in Processing 3.
