@@ -90,11 +90,11 @@ class HMDSensorEventListener implements SensorEventListener {
           magnet.z = evt.values[2];
           break;
         }
-        //case Sensor.TYPE_PRESSURE : {
-        //  pressure = evt.values[0];
-        //  altitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure);
-        //  break;
-        //}
+        case Sensor.TYPE_PRESSURE : {
+          pressure = evt.values[0];
+          altitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure);
+          break;
+        }
         case Sensor.TYPE_PROXIMITY : {
           proximity = evt.values[0];
           break;
