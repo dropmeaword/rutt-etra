@@ -14,7 +14,8 @@ import android.hardware.SensorEventListener;
 int idxShader = -1;
 
 void settings() {
-  size(800, 460, P3D);
+  fullScreen(P3D);
+  orientation(LANDSCAPE);
 }
 
 void setup()
