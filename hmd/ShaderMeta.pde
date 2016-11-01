@@ -31,7 +31,7 @@ class ShaderMeta
       } // for
     } catch (Exception e) {
       println("Metadata couldn't be parsed, .meta file probably contains a typo. Fix it and try again.");
-      throw e;
+      //throw e;
     }
   }
 
