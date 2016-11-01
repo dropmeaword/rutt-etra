@@ -1,9 +1,7 @@
-/*
 SensorManager sensorManager;
 List<Sensor> sensors;
 Context context;
 HMDSensorEventListener listener;
-*/
 
 PVector accel;
 PVector linearaccel;
@@ -28,7 +26,6 @@ void initSensors() {
   magnet = new PVector();
   gravity = new PVector();
 
-/*
   context = surface.getActivity();
   sensorManager = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
   if (sensorManager != null) {
@@ -39,7 +36,7 @@ void initSensors() {
       sensorManager.registerListener(listener, s, SensorManager.SENSOR_DELAY_GAME);
     }
   }
-*/
+
 }
 
 /*
