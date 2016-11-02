@@ -1,27 +1,10 @@
-// Elevated shader
-// https://www.shadertoy.com/view/MdX3Rr by inigo quilez
-
-// Created by inigo quilez - iq/2013
-// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-
-// Processing port by Raphaël de Courville.
-
 #ifdef GL_ES
-precision highp float;
+precision mediump float;
 #endif
 
-// Type of shader expected by Processing
-#define PROCESSING_COLOR_SHADER
-
 // Processing specific input
-uniform float time;
-uniform vec2 resolution;
-uniform vec2 mouse;
-
-// Layer between Processing and Shadertoy uniforms
-vec3 iResolution = vec3(resolution,0.0);
-float iGlobalTime = time;
-vec4 iMouse = vec4(mouse,0.0,0.0); // zw would normally be the click status
+uniform float iGlobalTime;
+uniform vec3 iResolution;
 
 // ------- Below is the unmodified Shadertoy code ----------
 // Created by inigo quilez - iq/2013

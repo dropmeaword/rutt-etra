@@ -15,17 +15,24 @@ int idxShader = -1;
 List<Shader> shaders;
 Shader shader;
 
-void settings() {
-  fullScreen(P3D);
-  orientation(LANDSCAPE);
-  //size(600, 600, P3D);
-}
+// the following seems to crash on Android.
+//
+//void settings() {
+//  fullScreen(P3D);
+//  orientation(LANDSCAPE);
+//  //size(600, 600, P3D);
+//}
 
 void setup()
 {
+  fullScreen(P3D);
+  orientation(LANDSCAPE);
+  
   initSensors();
   config = new Config("hmdviewer.config");
   
+  //shader = new Shader("shaders/002.glsl");
+
   shaders = new ArrayList<Shader>();
   
   List<String> names = config.getShaderList();
