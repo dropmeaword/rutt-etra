@@ -27,6 +27,8 @@ void setup()
 {
   fullScreen(P3D);
   orientation(LANDSCAPE);
+  //fullScreen(PCardboard.STEREO);
+
   
   initSensors();
   config = new Config("hmdviewer.config");
