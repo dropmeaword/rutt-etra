@@ -2,6 +2,10 @@
 
 Shader code must be placed in the `data/shaders` folder. Each shader in it's on file, with extensions `.glsl`. If a file with the same name (but `.meta` as extension) is found it will be loaded and will be used to define shader-specific variables. If no meta file is found the shader will be loaded just fine but no additional variables will be defined. See [Shader metadata](shadermeta.md) for details.
 
+## Shaders on Android
+
+Android only supports a subset of the GLSL spec, the [GLSL ES specification](https://www.khronos.org/registry/gles/specs/3.2/GLSL_ES_Specification_3.20.pdf) specifically, so keep that in mind. 
+
 ## Shader variables
 
 The following variables are available to all shaders.
