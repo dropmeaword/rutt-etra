@@ -39,7 +39,7 @@ void initSensors() {
 
 }
 
-/*
+
 class HMDSensorEventListener implements SensorEventListener {
 
    public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -116,4 +116,3 @@ class HMDSensorEventListener implements SensorEventListener {
    } // onSensorChanged
 
 } // class
-*/
