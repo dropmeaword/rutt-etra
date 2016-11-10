@@ -20,9 +20,6 @@ void settings() {
 
 void setup()
 {
-  config = new Config("hmdviewer.config");
-
-//  sdr = loadShader("data/shaders/landscape.glsl");
   uiInit();
   initShaders();
   uiSetShaders(shaders);

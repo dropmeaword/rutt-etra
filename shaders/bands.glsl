@@ -1,5 +1,3 @@
-#define PROCESSING_COLOR_SHADER
-
 #ifdef GL_ES
 precision mediump float;
 #endif
