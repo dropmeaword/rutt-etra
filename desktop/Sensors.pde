@@ -23,6 +23,8 @@ void initSensors() {
 }
 
 void updateSensors() {
+  if(shader == null) return;
+  
   // vector sensor readings
   shader.accelerometer(accel.x, accel.y, accel.z);
   shader.rotation(rotation.x, rotation.y, rotation.z);

@@ -13,6 +13,11 @@ class SensorPlayground extends SensorBaseLayer {
   
   public void accelerometer(float a, float b, float c) {
     v0( (a / 16000), (b / 16000), (c / 16000) );
+    
+    ControllerInterface ctrl = cp5.get("rate");
+    if(null != ctrl) {
+      ctrl.setValue( a );
+    }
   }
 
   public void gyroscope(float a, float b, float c) {

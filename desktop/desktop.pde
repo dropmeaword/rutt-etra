@@ -27,6 +27,7 @@ void setup()
 
 void draw()
 {
+  updateSensors();
   shader.setShaderParameters();
 
   pg.beginDraw();
