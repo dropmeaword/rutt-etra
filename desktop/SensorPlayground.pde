@@ -1,9 +1,9 @@
 class SensorPlayground extends SensorBaseLayer {
   
-  public SensorPlayground(Shader shdr) {
-    super(shdr);
+  public SensorPlayground(Shader shader) {
+    super(shader);
   }
-
+  
   // /////////////////////////////////////////////////////////////////////////////
   // /////////////////////////////////////////////////////////////////////////////
   // You can change the code below this point to implement your
@@ -43,8 +43,11 @@ class SensorPlayground extends SensorBaseLayer {
     f3(val);
   }
 
-  public void signalStrength(float val) {
+  public void temperature(float val) {
     f4(val);
+  }
+
+  public void signalStrength(float val) {
   }
 
 } // class

@@ -2,16 +2,19 @@ float []date = {0, 0, 0, 0};
 float []mouse = {0, 0, 0, 0};
 PVector res = new PVector(width, height);
 
-class Shader
+class Shader implements SensorLayer
 {
   String path;
   PShader shader;
   ArrayList<Param> parameters;
+  
+  SensorBaseLayer sensors;
 
   Shader(String path) {
     this.path = path;
     println("Loading shader " + path);
     shader = loadShader(path);
+    sensors = new SensorPlayground( this );
     parameters = new ArrayList<Param>();
   }
 
@@ -61,7 +64,47 @@ class Shader
       }
     }
   }
+
+  public void accelerometer(float a, float b, float c) {
+    sensors.accelerometer(a, b, c);
+  }
   
+  public void gyroscope(float a, float b, float c) {
+    sensors.gyroscope(a, b, c);
+  }
+  
+  public void magnetometer(float a, float b, float c) {
+    sensors.magnetometer(a, b, c);
+  }
+  
+  public void gravity(float a, float b, float c) {
+    sensors.gravity(a, b, c);
+  }
+  
+  public void rotation(float a, float b, float c) {
+    sensors.rotation(a, b, c);
+  }
+  
+  public void pressure(float val) {
+    sensors.pressure(val);
+  }
+  
+  public void proximity(float val) {
+    sensors.proximity(val);
+  }
+  
+  public void humidity(float val) {
+    sensors.humidity(val);
+  }
+
+  public void temperature(float val) {
+    sensors.temperature(val);
+  }
+
+  public void signalStrength(float val) {
+    sensors.signalStrength(val);
+  }
+
 } // class
 
 // ////////////////////////////////////////////////////////////////////////////

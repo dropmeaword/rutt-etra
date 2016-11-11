@@ -27,7 +27,7 @@ void setup()
 
 void draw()
 {
-shader.setShaderParameters();
+  shader.setShaderParameters();
 
   pg.beginDraw();
   pg.shader(shader.shader);
