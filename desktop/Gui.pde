@@ -2,11 +2,12 @@ ControlFrame cf;
 
 void uiInit() {
   cf = new ControlFrame(this, 400, 600, "Controls");
+  cf.settings();
   cf.setup();
   surface.setLocation(420, 10);
 }
 
-void uiSetShaders(List<ShaderUI> shaders) {
+synchronized void uiSetShaders(List<ShaderUI> shaders) {
   PVector guiPosition = new PVector(15, height-250);
   
   //if(null == cf.controller()) { println("controller is null, shouldn't be"); }
