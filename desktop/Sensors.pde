@@ -21,3 +21,20 @@ void initSensors() {
   magnet = new PVector();
   gravity = new PVector();
 }
+
+void updateSensors() {
+  if(shader == null) return;
+  
+  // vector sensor readings
+  shader.accelerometer(accel.x, accel.y, accel.z);
+  shader.rotation(rotation.x, rotation.y, rotation.z);
+  shader.gyroscope(gyro.x, gyro.y, gyro.z);
+  shader.magnetometer(magnet.x, magnet.y, magnet.z);
+  shader.gravity(gravity.x, gravity.y, gravity.z);
+  
+  // scalar sensor readings  
+  shader.pressure(pressure);
+  shader.proximity(proximity);
+  shader.humidity(humidity);
+  shader.temperature(temperature);
+}

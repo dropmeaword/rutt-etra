@@ -1,4 +1,3 @@
-/*
 OscP5 oscP5;
 
 void initOsc() {
@@ -6,14 +5,19 @@ void initOsc() {
 }
 
 void oscEvent(OscMessage msg) {
-  println("shizzle");
-  
+  //println("shizzle");
   if( msg.checkAddrPattern("/gravity/X") ) {
       gravity.x = msg.get(0).floatValue();
   } else if ( msg.checkAddrPattern("/gravity/Y") ) {
       gravity.y = msg.get(0).floatValue();
   } else if ( msg.checkAddrPattern("/gravity/Z") ) {
       gravity.z = msg.get(0).floatValue();
+  } else if ( msg.checkAddrPattern("/accelerometer/X") ) {
+      accel.x = msg.get(0).floatValue();
+  } else if ( msg.checkAddrPattern("/accelerometer/Y") ) {
+      accel.y = msg.get(0).floatValue();
+  } else if ( msg.checkAddrPattern("/accelerometer/Z") ) {
+      accel.z = msg.get(0).floatValue();
   } else if ( msg.checkAddrPattern("/linearacceleration/X") ) {
       linearaccel.x = msg.get(0).floatValue();
   } else if ( msg.checkAddrPattern("/linearacceleration/Y") ) {
@@ -52,4 +56,3 @@ void oscEvent(OscMessage msg) {
     println("### received an osc message. with address pattern " + msg.addrPattern());
   }
 }
-*/

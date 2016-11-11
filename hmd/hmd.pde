@@ -13,7 +13,7 @@ import android.hardware.SensorEventListener;
 int idxShader = -1;
 
 List<Shader> shaders;
-Shader shader;
+volatile Shader shader;
 
 // the following seems to crash on Android.
 //

@@ -2,7 +2,6 @@
 
 ControlP5 cp5;
 
-
 void initUI() {
   //cf = new ControlFrame(this, 400, 600, "Controls");
   //cf.settings();
