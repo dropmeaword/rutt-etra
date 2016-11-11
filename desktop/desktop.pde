@@ -6,27 +6,18 @@ import java.io.*;
 import oscP5.*;
 import netP5.*;
 
-//PShader sdr;
-
-// import android.content.Context;
-// import android.hardware.Sensor;
-// import android.hardware.SensorEvent;
-// import android.hardware.SensorEventListener;
-// import android.hardware.SensorManager;
-
-//PGraphics pg;
-int idxShader = -1;
-
 OscP5 oscrx;
 
+PGraphics pg;
+int idxShader = -1;
 
 void settings() {
-  size(800, 460, P3D);
+  size(1200, 700, P3D);
 }
 
 void setup()
 {
-  uiInit();
+  initUI();
   initSensors();
   //initOsc();
   oscrx = new OscP5(this, 9000);
@@ -34,14 +25,22 @@ void setup()
   initShaders();
   uiSetShaders(shaders);
 
+  pg = createGraphics(1000, 700, OPENGL);
   setShader(0);
 }
 
 void draw()
 {
-  shader.setShaderParameters();
-  shader(shader.shader);
+shader.setShaderParameters();
+
+  pg.beginDraw();
+  pg.shader(shader.shader);
+  pg.rect(0, 0, pg.width, pg.height);
+  pg.endDraw();
+
+  fill(0);
   rect(0, 0, width, height);
+  image(pg, 350, 0);
 }
 
 void oscEvent(OscMessage msg) {

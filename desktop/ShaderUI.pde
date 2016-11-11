@@ -10,7 +10,8 @@ class ShaderUI extends Shader {
         if(null != parameters) {
           for (Param p : parameters) {
             if (p.is2d) {
-              cf.controller().addSlider2D(p.name)
+              cp5.addSlider2D(p.name)
+                  .plugTo(this, p.name)
                  .setArrayValue(new float[]{p.value2.x, p.value2.y})
                  .setMinX(p.minValue2.x).setMinY(p.minValue2.y)
                  .setMaxX(p.maxValue2.x).setMaxY(p.maxValue2.y)
@@ -19,12 +20,12 @@ class ShaderUI extends Shader {
               guiPosition.y += 330;
             }
             else {
-              cf.controller().addSlider(p.name)
+              cp5.addSlider(p.name)
                  .setValue(p.value)
                  .setRange(p.minValue, p.maxValue)
                  .setPosition(guiPosition.x, guiPosition.y)
-                 .setSize(300, 25);
-              guiPosition.y += 35;
+                 .setSize(200, 15);
+              guiPosition.y += 25;
             } // if else
           } // for
         } // if
@@ -35,7 +36,7 @@ class ShaderUI extends Shader {
       synchronized(this) {
         if(null != parameters) {
           for (Param p : parameters) {
-            cf.controller().remove(p.name);
+            cp5.remove(p.name);
           }
         }
       } // synchronized

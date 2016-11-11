@@ -1,8 +1,10 @@
-class ControlFrame extends PApplet {
+/*
+
+public class ControlFrame extends PApplet {
 
   int w, h;
-  PApplet parent;
-  ControlP5 cp5;
+  public PApplet parent;
+  public ControlP5 cp5;
 
   public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
     super();
@@ -13,11 +15,7 @@ class ControlFrame extends PApplet {
     PApplet.runSketch(new String[]{this.getClass().getName()}, this);
   }
 
-   public void dispose() {
-     parent.dispose();
-   }
-
-  void settings() {
+  public void settings() {
     size(w, h, P2D);
   }
 
@@ -60,3 +58,4 @@ class ControlFrame extends PApplet {
   }
 
 } // class ControlFrame
+*/
